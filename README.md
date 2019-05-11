@@ -10,11 +10,13 @@
 4)lib/psys.php
 
 - getCIDs() - добавить, "RUB" заменить на валюту кассы
+
 		'IK' => array('InterKassa', 'RUB', 1, 0, 'RUB', 'ik_inv_st'),
 
 - getPayFields() - убрать case 'IK':
 
 - getSCIFields() - добавить
+
 case 'IK':
 	return array(
         	'apiId' => array('User ID - Id пользователя', '', 'Указан в Личном кабинете, раздел API'),
@@ -27,6 +29,7 @@ case 'IK':
 	);
 
 - prepareSCI() - добавить
+
 case 'IK':
 	require_once('interkassa/interkassa.class.php');
         $Interkassa = new Interkassa($params2);
@@ -40,6 +43,7 @@ case 'IK':
         } else return $Interkassa->generate_form($tag, $sum, $memo, $c[4], $urlok, $urlfail, $urlproc);
 
 - chkSCI() - добавить
+
 case 'IK':
 	$r = array(
                 'ik_co_id' => $arr['ik_co_id'],
