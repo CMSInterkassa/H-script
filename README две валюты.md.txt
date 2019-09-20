@@ -12,14 +12,16 @@
 - getCIDs() - добавить код и заменить "RUB" на валюту кассы
 
 ```php
-'IK' => array('InterKassa', 'RUB', 1, 0, 'RUB', 'ik_inv_st'),
+'IKR'=> array('InterKassa RUB', 'RUB', 1, 0, 'RUB', 'ik_inv_st'),
+'IKU' => array('InterKassa USD', 'USD', 1, 0, 'USD', 'ik_inv_st'),
 ```
 - getPayFields() - убрать case 'IK':
 
 - getSCIFields() - добавить
 
 ```php
-    case 'IK':
+case 'IKR':
+case 'IKU':
 	return array(
 		'apiId' => array('User ID - Id пользователя', '', 'Указан в Личном кабинете, раздел API'),
 		'apiKey' => array('Key - Ключ Api', '', 'Указан в Личном кабинете, раздел API'),
@@ -34,7 +36,8 @@
 - prepareSCI() - добавить
 
 ```php
-case 'IK':
+case 'IKR':
+case 'IKU':
 	require_once('interkassa/interkassa.class.php');
         $Interkassa = new Interkassa($params2);
         if (!empty($_POST['ik_inv_st']) && $_POST['ik_inv_st'] == 'success') {
@@ -50,7 +53,8 @@ case 'IK':
 - chkSCI() - добавить
 
 ```php
-case 'IK':
+case 'IKR':
+case 'IKU':
 	$r = array(
                 'ik_co_id' => $arr['ik_co_id'],
                 'batch' => $arr['ik_inv_id'],
@@ -65,13 +69,3 @@ case 'IK':
 1) Панель управления - Платежные системы - Добавить - interkassa
 2) Ввести данные кассы и кошелька
 3) В блоке "Пополнение" выбрать "Режим" - "через мерчант"
-
-5bd2effa3b1eafbe508b456c
-abJqFcXDc9GMU5UL
-h42b7xAbQTnvGBA2
-5bd2ed2e3c1eaf743c8b4568
-j6liXicYuDS76NyWDyJjVYRt6kBnkISU
-5d7d74b41ae1bd15008b4569
-Smqvd9nJuKf5dhbiZx6ce7UDuIalpXpu
-5d7d74fe1ae1bd9b6a8b4567
-27b07lDHJH0eYp12
